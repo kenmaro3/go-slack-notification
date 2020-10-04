@@ -12,6 +12,10 @@ type ConfigList struct {
 	ClientSecret   string
 	SigningSecret  string
 	TargetChannel  string
+
+	ChannelSecret string
+	ChannelToken  string
+	UserId        string
 }
 
 var Config ConfigList
@@ -28,5 +32,9 @@ func init() {
 		ClientSecret:   cfg.Section("slack").Key("client_secret").String(),
 		SigningSecret:  cfg.Section("slack").Key("signing_secret").String(),
 		TargetChannel:  cfg.Section("slack").Key("target_channel").String(),
+
+		ChannelSecret: cfg.Section("line").Key("channel_secret").String(),
+		ChannelToken:  cfg.Section("line").Key("channel_token").String(),
+		UserId:        cfg.Section("line").Key("user_id").String(),
 	}
 }
